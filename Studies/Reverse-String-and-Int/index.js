@@ -43,3 +43,16 @@ const reverse3 = (str = "") => {
 console.log("Method 3");
 reverse3(123);
 reverse3("apple");
+
+// ===================================================
+
+// 4. Reverse an Integer with the Reverse Method
+
+const reverseInt = (n) => {
+  const reversed = n.toString().split("").reverse().join("");
+  return parseInt(reversed) * Math.sign(n);
+};
+
+console.log("--------");
+console.log("Reverse Integer");
+console.log(reverseInt(129948));
