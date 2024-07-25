@@ -1,3 +1,4 @@
+// Solution #1
 const anagrams = (str1, str2) => {
   const strMap1 = buildCharMap(str1);
   const strMap2 = buildCharMap(str2);
@@ -22,3 +23,17 @@ const buildCharMap = (str) => {
 
 console.log(anagrams("hello", "ollhe"));
 console.log(anagrams("kaka", "wewe"));
+console.log("------");
+
+// ============================================================
+// Solution #2
+
+const anagrams2 = (str1, str2) => {
+  return cleanStr(str1) === cleanStr(str2);
+};
+
+const cleanStr = (str) => {
+  return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
+};
+console.log(anagrams2("hello", "ollhe"));
+console.log(anagrams2("kaka", "wewe"));
