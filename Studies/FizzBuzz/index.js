@@ -4,10 +4,10 @@
 
 const fizzBuzz = (n) => {
   for (let val = 1; val <= n; val++) {
-    if (val % 3 === 0) console.log(val + " fizz");
-    if (val % 5 === 0) console.log(val + " buzz");
-    if (val % 3 === 0 && val % 5 === 0) console.log(val + " fizzbuzz");
-    if (val % 3 !== 0 && val % 5 !== 0) console.log(val);
+    if (val % 3 === 0 && val % 5 === 0) console.log("fizzbuzz");
+    else if (val % 3 === 0) console.log("fizz");
+    else if (val % 5 === 0) console.log("buzz");
+    else console.log(val);
   }
 };
 
