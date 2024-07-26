@@ -41,6 +41,11 @@ class Student {
     this.scores.push(score);
     return this.scores;
   }
+  calcAverage() {
+    let sum = this.scores.reduce((a, b) => a + b);
+    let average = sum / this.scores.length;
+    return `${this.firstName} has average of ${average}.`;
+  }
 }
 
 // Creating objects from classes
@@ -60,3 +65,4 @@ console.log(firstStudent.markLate());
 console.log("--------");
 console.log(firstStudent.addScore(12));
 console.log(firstStudent.addScore(46));
+console.log(firstStudent.calcAverage());
