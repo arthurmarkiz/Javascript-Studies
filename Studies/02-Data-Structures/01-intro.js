@@ -1,6 +1,6 @@
 /* 
 
-WHAT DO THEY DO?
+WHAT THEY DO?
 Data structures are collections of values,
 the relationships among them, and the functions
 or operations that can be applied to the data.
