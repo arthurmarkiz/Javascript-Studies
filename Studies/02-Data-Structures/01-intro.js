@@ -24,6 +24,22 @@ class Student {
     this.firstName = firstName;
     this.lastName = lastName;
     this.grade = gradeYear;
+    this.tardies = 0;
+    this.scores = [];
+  }
+  fullName() {
+    return `Your full name is ${this.firstName} ${this.lastName}.`;
+  }
+  markLate() {
+    this.tardies += 1;
+    if (this.tardies >= 3)
+      return `${this.firstName} ${this.lastName} ARE EXPELLED!!!`;
+
+    return `${this.firstName} ${this.lastName} has been late ${this.tardies} times.`;
+  }
+  addScore(score) {
+    this.scores.push(score);
+    return this.scores;
   }
 }
 
@@ -32,3 +48,15 @@ class Student {
 
 let firstStudent = new Student("Arthur", "Markiz", 3);
 let secondStudent = new Student("Colt", "Steele", 1);
+
+// Calling instance methods
+
+console.log(firstStudent.fullName());
+console.log(firstStudent.markLate());
+console.log("--------");
+console.log(firstStudent.markLate());
+console.log("--------");
+console.log(firstStudent.markLate());
+console.log("--------");
+console.log(firstStudent.addScore(12));
+console.log(firstStudent.addScore(46));
