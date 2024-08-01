@@ -23,7 +23,7 @@ const hasCorrespondingSquared = (array, arraySquared) => {
 } 
 console.log(hasCorrespondingSquared([9, 2, 3, 1], [1, 4, 81, 9]));
 
-// =================================================================
+// ------------------------------------------------------------------
 // Given two strings, write a function to determine if the second string is an Anagram.
 
 const isAnagram = (firstString, secondString) => {

@@ -24,3 +24,22 @@ const pairSumIsZero = (array) => {
 };
 
 console.log(pairSumIsZero([-4, -3, -2, -1, 0, 1, 2, 3, 10]));
+
+// --------------------------------------------------------------
+
+/* Implement a function which accepts a sorted array, and counts the unique values
+in the array. There can be negative numbers, but it will always be sorted!!!
+e.g array[1,1,1,1,1,1,2] will return "2 unique values" */
+
+const countUniqueValues = (array) => {
+    let index = 1;
+    for (let scout = 1; scout < array.length; scout++) {
+        if (array[index] !== array[scout]) {
+            index++;
+            array[index] = array[scout];
+        };
+    };
+    return index;
+};
+
+console.log(countUniqueValues([1,1,1,2,2,3,3,3,3]));
