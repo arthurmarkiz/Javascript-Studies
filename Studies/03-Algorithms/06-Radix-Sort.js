@@ -17,36 +17,20 @@ e.g:
     getDigit(29452, 1); // 5
     getDigit(29452, 2); // 4
     ...
-*/
-const getDigit = (num, i) => {
-    return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
-};
-/* 
+------------------------------
 # digitCount(num) - returns the number of digits in num.
 e.g:
     digitCount(1); // 1
     digitCount(25); // 2
     digitCount(314); // 3
-*/
-const digitCount = (num) => {
-    if (num === 0) return 1;
-    return Math.floor(Math.log10(Math.abs(num))) + 1;
-};
-/*
+------------------------------
 # mostDigits(nums) - Given an array of numbers, returns
 the number of digits in the largest number in the list.
 e.g:
     mostDigits([1234, 56, 7]); // 4
     mostDigits([1, 90, 765]); // 3
-*/
-const mostDigits = (nums) => {
-    let maxDigits = 0;
-    for (let i = 0; i < nums.length; i++) {
-        maxDigits = Math.max(maxDigits, digitCount(nums[i]));
-    }
-    return maxDigits;
-};
-/* ====================================================
+
+=======================================================
 
 ### RADIX SORT PSEUDOCODE ###
 
@@ -61,3 +45,35 @@ const mostDigits = (nums) => {
 starting with 0 and going up to 9;
 - Return the list at the end!
 */
+const getDigit = (num, i) => {
+    return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+};
+
+const digitCount = (num) => {
+    if (num === 0) return 1;
+    return Math.floor(Math.log10(Math.abs(num))) + 1;
+};
+
+const mostDigits = (arr) => {
+    let maxDigits = 0;
+    for (let i = 0; i < arr.length; i++) {
+        maxDigits = Math.max(maxDigits, digitCount(arr[i]));
+    }
+    return maxDigits;
+};
+
+const radixSort = (arr) => {
+    let maxDigitCount = mostDigits(arr);
+
+    for (let k = 0; k < maxDigitCount; k++) {
+        let digitBuckets = Array.from({length: 10}, () => []);
+        
+        for (let i = 0; i < arr.length; i++) {
+            let digit = getDigit(arr[i], k);
+            digitBuckets[digit].push(arr[i]);
+        }
+        arr = [].concat(...digitBuckets);
+    }
+    return arr;
+};
+console.log(radixSort([52, 1853, 12, 74, 85, 24, 9, 2, 1, 143, 274, 3]));
